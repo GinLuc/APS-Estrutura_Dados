@@ -1,0 +1,31 @@
+APS - 4º Semestre
+
+	- OBJETIVO: Gerar valores que tenham tamanhos respectivamente iguais 
+a: 10¹, 10², 10^4, 10^6, 10^8 e 10^9
+
+		+ Cada tamanho desses terá 7 cópias, aonde cada cópia será submetida 
+aos métodos de ordenação(ATENÇÃO: Em uma delas é necessário fazer a primeira posição igual a 1, pois é Max Heap);
+		+ Além disso, é necessário colocar um contador em cada método para contar os loopings necessários para realizar
+cada método;
+		+ Depois, armazene esses contadores dentro de um arquivo CSV dos dados analisados de cada cópia de cada vetor;
+		+ Com isso, gere gráficos individuais de cada método de cada tamanho do vetor, e depois um gráfico com todos os métodos para
+o mesmo tamanho de vetor;
+
+	- ENTREGAR:
+		1) Introdução
+		2) Revisão Bibliográfica sobre os métodos 
+		3) Descrição do Experimento
+		4) Resultados Gráficos + Tabelas de Valores
+		5) Discussão
+		6) Conclusão: Discorrer sobre qual método é melhor 
+		7) Bibliografia
+
+	- Métodos: Inserção Direta, Seleção Direta, Bubble Sort, Shake Sort, Quick Sort, Merge Sort e Heap.
+		I) Funcionamento: printf("Lista:\n");
+		II) Contador: Loopings
+		III) Comentários;
+
+
+	- DIAS:
+		+ 21/10: Métodos + Introdução;
+		+ 
