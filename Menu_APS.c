@@ -8,13 +8,13 @@
 #define v2 100
 #define v3 1000
 
-/*Variaveis auxiliadoras que irao usar em todos metodos de ordenaçao ao longo do programa ... */
+/*Variaveis auxiliadoras que irao usar em todos metodos de ordenaÃ§ao ao longo do programa ... */
 int i,j,aux; 
-/* Aqui fica todas as funções a serem usadas do programa desde a geracao de vetores
-   ate suas ordenaçoes ou menus */
+/* Aqui fica todas as funÃ§Ãµes a serem usadas do programa desde a geracao de vetores
+   ate suas ordenaÃ§oes ou menus */
 int menu_VETOR();  //Opcao onde usuario ira escolher tamanho do Vetor[M] ......
-int menu_ORDENACAO(); // Opcao onde usuario qual metodo de ordenacao irá usar .....
-void BubbleSort(int vetor[],int tam); // Metodo de ordenação BubbleSort
+int menu_ORDENACAO(); // Opcao onde usuario qual metodo de ordenacao irÃ¡ usar .....
+void BubbleSort(int vetor[],int tam); // Metodo de ordenaÃ§Ã£o BubbleSort
 int main(){
 	
 	char resp = 'S';
@@ -56,10 +56,10 @@ int main(){
 			}
 			
 			/*Aqui fica a validacao do usuario do que ele deseja fazer assim que escolher seu vetor e fazer 
-			  a ordenacao dele onde ele pode escolher entre voltar pro Menu de ordenação, caso ele nao queria
+			  a ordenacao dele onde ele pode escolher entre voltar pro Menu de ordenaÃ§Ã£o, caso ele nao queria
 			  vai para segunda pergunta que seria voltar para o Menu principal caso contrario o programa sera
 			  ecenrrado */
-			printf("\nDeseja fazer uma nova Ordenacação com mesmo vetor ? <S/N>\n");
+			printf("\nDeseja fazer uma nova OrdenacaÃ§Ã£o com mesmo vetor ? <S/N>\n");
 			resp = toupper(getch());		
 				while(resp != 'S' && resp != 'N'){
 					printf("\nOpcao Invalida !! Tente novamente !!!");
@@ -130,8 +130,8 @@ void BubbleSort(int vetor[],int tam){
 	for( i = 0; i < tam; i++ )
 	{
 	    for( j = i + 1; j < tam; j++ )
-		{ // sempre 1 elemento à frente{
-	      // se o (x > (x+1)) então o x passa pra frente (ordem crescente)
+		{ // sempre 1 elemento Ã  frente{
+	      // se o (x > (x+1)) entÃ£o o x passa pra frente (ordem crescente)
 	      if ( vetor[i] > vetor[j] )
 	      {
 	         aux = vetor[i];
