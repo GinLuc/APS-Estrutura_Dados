@@ -1,5 +1,5 @@
-#include<stdlib.h>
-#include<stdio.h>
+#include <stdlib.h>
+#include <stdio.h>
 #include <math.h>
 
 int main() {
@@ -30,6 +30,7 @@ int main() {
         posmenor=i;
 
         for(j=i+1;j<100;j++) {
+        // Verificação do valor ser menor que o primeiro capturado, a partir do elemento seguinte em diante
             if(vetor10_2[j]<menor) {
                 menor=vetor10_2[j];
                 posmenor=j;
