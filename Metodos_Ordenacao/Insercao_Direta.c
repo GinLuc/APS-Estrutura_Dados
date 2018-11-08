@@ -3,7 +3,7 @@
 #include <math.h>
 
 int main() {
-    int vetor10_2[100], contador = 1;
+    int vetor10_2[100], contador = 0;
     int j,aux,i;
 
 
@@ -33,9 +33,10 @@ int main() {
         while((j>=0)&&(aux<vetor10_2[j])) {
             vetor10_2[j+1]=vetor10_2[j]; //Deslocando
             j--;
+            contador++;
         }
         vetor10_2[j+1] = aux; //Inserindo
-        contador++;
+        
     }
 
     printf("\n\nVetor Ordenado:\n");
@@ -43,7 +44,7 @@ int main() {
     for(i=0;i<100;i++) {
         printf("%d\t %d\n", i+1, vetor10_2[i]);
     }
-    printf("\nContagem de Voltas: %d", contador);
+    printf("\nContagem de Ciclos: %d", contador);
 
 
 

@@ -37,8 +37,9 @@ int main() {
                 aux=vetor10_2[j-1];
                 vetor10_2[j-1]=vetor10_2[j];
                 vetor10_2[j]=aux;
-                k=j;
+                k=j;               
             }
+            contador++;
         }
 
         posInicial=k+1;
@@ -51,8 +52,9 @@ int main() {
                 vetor10_2[j]=aux;
                 k=j;
             }
+             contador++;
         }
-        contador++;
+        
         r=k-1;
     } while(posInicial<=r);
 

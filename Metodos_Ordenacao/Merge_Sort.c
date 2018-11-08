@@ -5,6 +5,7 @@
 void mergesort(int e, int d, int v[]);
 void intercala(int e, int meio, int d, int v[]);
 
+int contador = 0;
 
 int main() {
     int vetor10_2[10], posinicial = 0, tamvetor = 10, i;
@@ -30,12 +31,14 @@ int main() {
     mergesort(posinicial,tamvetor,vetor10_2);
 
 
-    printf("\n\nVetor Ordenado:\n");
-        printf("\nIndice:\t Valor:\n");
-        for(i=0;i<10;i++) {
-            printf("%d\t %d\n", i+1, vetor10_2[i]);
-        }
+	printf("\n\nVetor Ordenado:\n");
+    printf("\nIndice:\t Valor:\n");
+    for(i=0;i<10;i++) {
+        printf("%d\t %d\n", i+1, vetor10_2[i]);
+    }
 
+	printf("\n\nNumero de Ciclos: %d\n", contador);
+	
     return 0;
     system("PAUSE");
 }
@@ -48,6 +51,7 @@ void mergesort(int e, int d, int v[]) {
         mergesort(e,meio,v);
         mergesort(meio,d,v);
         intercala(e,meio,d,v);
+        
     }
 }
 
@@ -68,16 +72,20 @@ void intercala (int e, int meio, int d, int v[]) {
         else {
             w[k++] = v[j++];
         }
+        contador++;
     }
 
     while (i<meio) {
         w[k++] = v[i++];
+        contador++;
     }
     while (j<d) {
         w[k++] = v[j++];
+        contador++;
     }
     for (i=e;i<d;++i) {
         v[i] = w[i-e];
+        contador++;
     }
 
     free(w);

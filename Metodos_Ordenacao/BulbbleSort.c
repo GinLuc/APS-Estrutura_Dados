@@ -9,7 +9,8 @@ int main(){
   int vetor[10],
       i = 0,
       j = 0,
-      aux = 0;      
+      aux = 0,
+	  contador = 0;      
       
     printf("\n\n------------------------ Metodo de BubbleSort ------------------------");  
     
@@ -33,6 +34,7 @@ int main(){
          vetor[i] = vetor[j];
          vetor[j] = aux;
       }
+      contador++;
     }
    }// fim da ordenação
   
@@ -44,6 +46,8 @@ int main(){
   {
     printf("\nV[%d] - > %d ",i,vetor[i]); // exibe o vetor ordenado
   }  
+  
+  printf("\nNumero de Ciclos: %d", contador);
   
   printf("\n\n");
   	getch();
