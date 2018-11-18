@@ -4,9 +4,10 @@
 
 
 void peneira(int p, int m, int v[]);
+int contador = 0;
 
 int main() {
-    int vetor10_2[20], i;
+    int vetor10_2[12], i;
     int posicao = 0, m, x, tam_vetor = sizeof(vetor10_2) / 4;
 
 
@@ -47,6 +48,7 @@ int main() {
         printf("%d\t %d\n", i+1, vetor10_2[i]);
     }
 
+	printf("Contagem de Ciclos: %d.\n", contador);
 
 
 
@@ -55,11 +57,12 @@ int main() {
 }
 
 void peneira(int p, int m, int v[]) {
-    int vl_inicial = v[p], i;
+    int vl_inicial = v[p];
 
 
-    while (2*p < m) {
+    while (2*p <= m) {
         int f = 2*p;
+        printf("f: %d\n\n", f);
         if (f<m && v[f]<v[f+1])   {
             ++f;
         }
@@ -69,11 +72,10 @@ void peneira(int p, int m, int v[]) {
         }
 
 
-        printf("\n%d\t %d\n",  v[p], v[f]);
+        printf("\n%d\t %d\t\t  %d\t %d\n",  p, v[p], f, v[f]);
         v[p] = v[f];
         p = f;
-
-
+		contador++;
     }
 
     v[p] = vl_inicial;

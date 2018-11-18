@@ -1,9 +1,9 @@
 #include<stdlib.h>
 #include<stdio.h>
-#include <math.h>
+#include<math.h>
 
 int main() {
-    int vetor10_2[100];
+    int vetor10_2[10];
     int j,k,posInicial,r,aux,i;
     int contador;
 
@@ -15,13 +15,13 @@ int main() {
 
 //Criação e Mostragem do Vetor
     printf("\nCriando Vetor...\n");
-    for(i=0;i<100;i++) {
+    for(i=0;i<10;i++) {
         vetor10_2[i] = rand() %100;
     }
 
     printf("\n\nVetor Criado:\n");
     printf("\nIndice:\t Valor:\n");
-    for(i=0;i<100;i++) {
+    for(i=0;i<10;i++) {
         printf("%d\t %d\n", i+1, vetor10_2[i]);
     }
 
@@ -37,7 +37,7 @@ int main() {
                 aux=vetor10_2[j-1];
                 vetor10_2[j-1]=vetor10_2[j];
                 vetor10_2[j]=aux;
-                k=j;               
+                k=j;
             }
             contador++;
         }
@@ -54,13 +54,13 @@ int main() {
             }
              contador++;
         }
-        
+
         r=k-1;
     } while(posInicial<=r);
 
     printf("\n\nVetor Ordenado:\n");
     printf("\nIndice:\t Valor:\n");
-    for(i=0;i<100;i++) {
+    for(i=0;i<10;i++) {
         printf("%d\t %d\n", i+1, vetor10_2[i]);
     }
 
