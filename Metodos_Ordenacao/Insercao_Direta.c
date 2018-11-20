@@ -2,12 +2,12 @@
 #include<stdio.h>
 #include <math.h>
 
+
+/* Método Inserção Direta*/
+
 int main() {
     int vetor10_2[100], contador = 0;
     int j,aux,i;
-
-
-
 
     printf("\n\n-------------Metodo Insercao Direta-------------\n\n");
 
@@ -27,15 +27,22 @@ int main() {
 //Implementação do Método Inserção Direta
 
     printf("\nOrdenando...\n\n");
+	
+//Pega-se o valor de um elemento e compara com seu/seus elementos antecessores, esses já ordenados
     for(i=1;i<100;i++) {
-        aux=vetor10_2[i];
-        j=i-1;
-        while((j>=0)&&(aux<vetor10_2[j])) {
-            vetor10_2[j+1]=vetor10_2[j]; //Deslocando
+        aux=vetor10_2[i]; //Representa inicialmente o segundo elemento capturado pelo índice i, sendo esse igual a 1
+        j=i-1; //Representa o índice anterior ao índice i, valendo esse um número antes de i, sendo o elemento que o representa como antecessor ao analisado
+        
+		//Verificação do índice anterior ao selecionado
+		while((j>=0)&&(aux<vetor10_2[j])) { //Caso o índice seja maior ou igual a 0(ainda está no vetor), e o elemento que o representa seja menor que o elemento analisado...
+            vetor10_2[j+1]=vetor10_2[j]; //Ocorre a substituição do valor do elemento posterior(este analisado) pelo valor do elemento antecessor a ele
             j--;
             contador++;
         }
-        vetor10_2[j+1] = aux; //Inserindo
+		
+		// Caso o valor do elemento que representa o índice anterior não seja menor que o posterior, ou o índice anterior seja menor que 0
+		//o elemento posterior deve receber o seu valor de volta, ordenando o vetor do menor valor até que o último/maior valor seja atribuído. 
+        vetor10_2[j+1] = aux;
         
     }
 
