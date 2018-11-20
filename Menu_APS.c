@@ -8,6 +8,8 @@
 #define v2 100
 #define v3 1000
 #define v4 10000
+#define v6 10000000
+#define v7 100000000
 
 /*Variaveis auxiliadoras que irao usar em todos metodos de ordenaçao ao longo do programa ... */
 int i,j,aux,contador=0,menor,posmenor,r,k,posInicial;
@@ -27,18 +29,21 @@ int main(){
 		com tamanho escolhido e mostrando para o usuario */
 		system("cls");
 		int tam = menu_VETOR();
-		int vetor_principal[tam];
-		int c1[tam],c2[tam],c3[tam],c4[tam],c5[tam],c6[tam];
+		int *vetor_principal = (int *) calloc(tam,sizeof(int));
+		int *c1 = (int *) calloc(tam,sizeof(int));
+		int *c2 = (int *) calloc(tam,sizeof(int));
+		int *c3 = (int *) calloc(tam,sizeof(int));
+		int *c4 = (int *) calloc(tam,sizeof(int));
+		int *c5 = (int *) calloc(tam,sizeof(int));
+		int *c6 = (int *) calloc(tam,sizeof(int));
+		
 
 		for(i=0;i<tam;i++){
-			vetor_principal[i] = rand() %1000;
-			c1[i] = vetor_principal[i];
-			c2[i] = vetor_principal[i];
-			c3[i] = vetor_principal[i];
-			c4[i] = vetor_principal[i];
-			c5[i] = vetor_principal[i];
-			c6[i] = vetor_principal[i];			
+			vetor_principal[i] = rand();							
 		}
+		
+		c1=c2=c3=c4=c5=c6=vetor_principal;
+
 
 		for(i=0;i<tam;i++){
 			printf("\nV[%d] = %d ",i+1,vetor_principal[i]);
@@ -100,6 +105,7 @@ int main(){
 				}
 	}while(resp == 'S');
 
+	return 0;
 }
 
 int menu_VETOR(){
@@ -122,7 +128,7 @@ int menu_VETOR(){
 	}
 
    else if (op_VETOR == 3){
-		return v3;
+		return v7;
 	} else {
 	    system("cls");
 	    printf("\Nao foi digitado um valor valido!!!\n\n");
