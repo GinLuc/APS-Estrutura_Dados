@@ -58,13 +58,15 @@ int particao(int e, int d){
 		do{
 			i = i+1; // esquerda
 			cont++;
-		}while((a[i] < v) && (i < d));
+		}while((a[i] < v) && (i < d)); //Percorre todos os índices até que encontre um valor maior que o do pivô
 		
 		do{
 			j = j-1; //direita
 			cont++;
-		}while((a[j] > v ) && (j > 0));
+		}while((a[j] > v ) && (j > 0)); //Percorre todos os índices da direita até que encontre um valor menor que o pivô  
 		
+		
+		//Realizando a troca dos valores menor(para a esquerda) e maior(para a direita) que o pivô 
 		t = a[i];
 		a[i] =a[j];
 		a[j] = t;		
