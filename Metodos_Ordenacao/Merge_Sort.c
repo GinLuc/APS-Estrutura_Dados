@@ -8,37 +8,37 @@ void intercala(int e, int meio, int d, int v[]);
 int contador = 0;
 
 int main() {
-    int vetor10_2[10], posinicial = 0, tamvetor = 10, i;
+    int vetor[10], posinicial = 0, tam_vetor=(sizeof(vetor)/4), i;
 
     printf("\n\n-------------Metodo Merge Sort-------------\n\n");
 
     //Criação e Mostragem do Vetor
     printf("\nCriando Vetor...\n");
-    for(i=0;i<10;i++) {
-        vetor10_2[i] = rand() %100;
+    for(i=0;i<tam_vetor;i++) {
+        vetor[i] = rand() %100;
     }
 
     printf("\n\nVetor Criado:\n");
     printf("\nIndice:\t Valor:\n");
-    for(i=0;i<10;i++) {
-        printf("%d\t %d\n", i+1, vetor10_2[i]);
+    for(i=0;i<tam_vetor;i++) {
+        printf("%d\t %d\n", i+1, vetor[i]);
     }
 
 
 //Implementação do Método Merge Sort
 
     printf("\nOrdenando...\n\n");
-    mergesort(posinicial,tamvetor,vetor10_2);
+    mergesort(posinicial,tam_vetor,vetor);
 
 
 	printf("\n\nVetor Ordenado:\n");
     printf("\nIndice:\t Valor:\n");
-    for(i=0;i<10;i++) {
-        printf("%d\t %d\n", i+1, vetor10_2[i]);
+    for(i=0;i<tam_vetor;i++) {
+        printf("%d\t %d\n", i+1, vetor[i]);
     }
 
 	printf("\n\nNumero de Ciclos: %d\n", contador);
-	
+
     return 0;
     system("PAUSE");
 }
@@ -51,7 +51,7 @@ void mergesort(int e, int d, int v[]) {
         mergesort(e,meio,v);
         mergesort(meio,d,v);
         intercala(e,meio,d,v);
-        
+
     }
 }
 

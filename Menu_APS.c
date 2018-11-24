@@ -12,18 +12,26 @@
 #define v5 100000000
 #define v6 1000000000
 
-/*Variaveis auxiliadoras que irao usar em todos metodos de ordena√ßao ao longo do programa ... */
+/*Variaveis auxiliadoras que irao usar em todos metodos de ordenacao ao longo do programa ... */
 int i,j,aux,contador=0,menor,posmenor,r,k,posInicial;
-/* Aqui fica todas as fun√ß√µes a serem usadas do programa desde a geracao de vetores
-   ate suas ordena√ßoes ou menus */
+
+
+/* Aqui fica todas as funcoes a serem usadas do programa desde a geracao de vetores
+   ate suas ordenacoes ou menus */
+
 int menu_VETOR();  //Opcao onde usuario ira escolher tamanho do Vetor[M] ......
-int menu_ORDENACAO(); // Opcao onde usuario qual metodo de ordenacao ir√° usar .....
+int menu_ORDENACAO(); // Opcao onde usuario qual metodo de ordenacao irao usar .....
 void BubbleSort(int vetor[],int tam); // Metodo de ordenacao BubbleSort
 void Insercao_Direta(int vetor[],int tam);
 void Selecao_Direta(int vetor[],int tam);
 void Shake_Sort(int vetor[],int tam);
 void Merge_Sort(int e, int d, int v[]);
 void intercala (int e, int meio, int d, int v[]);
+//void Quicksort(int e, int d);
+//int particao(int e, int d);
+
+
+
 int main(){
 
 	char resp = 'S';
@@ -39,27 +47,14 @@ int main(){
 		int *c4 = (int *) calloc(tam,sizeof(int));
 		int *c5 = (int *) calloc(tam,sizeof(int));
 		int *c6 = (int *) calloc(tam,sizeof(int));
-		
+
 
 		for(i=0;i<tam;i++){
-			vetor_principal[i] = rand();							
+			vetor_principal[i] = rand();
 		}
-		
-		c1=c2=c3=c4=c5=c6=vetor_principal;
-		
-		/*
-		Obs para meu amigo Gian : Caro Gian deixei essas 2 alternativas para vocÍ escolher
-		qual sera a melhor opcao a primeira esta em comentario ele mostra todos os valores
-		do Vetor gerado porem quando vamos gerar um vetor de 10^8 ate ele escrever todas as
-		posicoes demora de mais, por isso deixei a outra opcao que nao esta em comentarios
-		teste qual vc acha que ira agradar o senhor FDP....Obg tenha um bom dia =)
-		PS : teste com a opcao 5 so ira fazer diferenca nela.....
-		*/
 
-		/*
-		for(i=0;i<tam;i++){
-			printf("\nV[%d] = %d ",i+1,vetor_principal[i]);
-		}*/
+		c1=c2=c3=c4=c5=c6=vetor_principal;
+
 		printf("\t---------------------------------");
 		printf("\n\n\t|\tVetor Gerado !!!!!\t|\t\n\n");
 		printf("\t---------------------------------");
@@ -83,32 +78,32 @@ int main(){
 				case 3:
 					Selecao_Direta(c2,tam);
 				break;
-				
+
 				case 4:
 					Shake_Sort(c3,tam);
 				break;
 
 				case 5:
-				
+                    //Quicksort(c4, tam);
 				break;
-				
+
 				case 6:
-					Merge_Sort(0,tam,c4);
+					Merge_Sort(0,tam,c5);
 					system("cls");
 					printf("\nOk !! Voce escolheu ....... \n");
-				
+
 					printf("\n----------- Merge Sort -----------\n");
-					
+
 				    printf("\nIndice:\t Valor:\n");
 				    for(i=0;i<tam;i++) {
 				        printf("%d\t %d\n", i+1, c4[i]);
 				    }
 				break;
-				
+
 				case 7:
 					// Heap em ManutenÁ„o ="(
 				break ;
-				
+
 				default:
 				    printf("\n\nNao foi digitado uma opcao de ordenacao valida!!!\n\n");
 				break;
@@ -169,7 +164,7 @@ int menu_VETOR(){
 	}
 	else if(op_VETOR == 4){
 		return v4;
-	} 
+	}
 	else if(op_VETOR == 5){
 		return v5;
 	}
@@ -198,14 +193,14 @@ int menu_ORDENACAO(){
 	printf("\n-> ");
 
 	scanf("%d",&op_ORDENACAO);
-	
+
 	printf("\nAguarde o termino da ordenacao ......\n\n");
 	return op_ORDENACAO;
 
 }
 
 void BubbleSort(int vetor[],int tam){
-	
+
 	contador=0;
 	system("cls");
 	printf("\nOk !! Voce escolheu ....... \n");
@@ -216,13 +211,14 @@ void BubbleSort(int vetor[],int tam){
 	{
 	    for( j = i + 1; j < tam; j++ )
 		{ // sempre 1 elemento √† frente{
-	      // se o (x > (x+1)) ent√£o o x passa pra frente (ordem crescente)
+	      // se o (x > (x+1)) entao o x passa pra frente (ordem crescente)
 	      if ( vetor[i] > vetor[j] )
 	      {
 	         aux = vetor[i];
 	         vetor[i] = vetor[j];
 	         vetor[j] = aux;
 	      }
+	      contador++;
 	    }
 	}
 
@@ -236,7 +232,7 @@ void BubbleSort(int vetor[],int tam){
 }
 
 void Insercao_Direta(int vetor[],int tam){
-	
+
 	int cont = 0;
 	system("cls");
 	printf("\nOk !! Voce escolheu ....... \n");
@@ -248,10 +244,11 @@ void Insercao_Direta(int vetor[],int tam){
         while((j>=0)&&(aux<vetor[j])) {
             vetor[j+1]=vetor[j]; //Deslocando
             j--;
-            cont++;
+
         }
+        cont++;
         vetor[j+1] = aux; //Inserindo
-        
+
     }
 
     printf("\n\nVetor Ordenado:\n");
@@ -263,13 +260,13 @@ void Insercao_Direta(int vetor[],int tam){
 }
 
 void Selecao_Direta(int vetor[],int tam){
-	
+
 	int cont = 0;
 	system("cls");
 	printf("\nOk !! Voce escolheu ....... \n");
 
 	printf("\n----------- Selecao Direta -----------\n");
-	
+
 	for(i=0;i<tam;i++){
         menor=vetor[i];
         posmenor=i;
@@ -284,13 +281,13 @@ void Selecao_Direta(int vetor[],int tam){
                 posmenor=j;
             }
             cont++;
-           
+
         }
-        
+
             vetor[posmenor]=vetor[i];
             vetor[i]=menor;
     }
-	
+
 	printf("\n\nVetor Ordenado:\n");
     printf("\nIndice:\t Valor:\n");
     for(i=0;i<tam;i++) {
@@ -300,62 +297,62 @@ void Selecao_Direta(int vetor[],int tam){
 }
 
 void Shake_Sort(int vetor[],int tam){
-	
+
 	system("cls");
 	printf("\nOk !! Voce escolheu ....... \n");
-	
+
 	posInicial=1;
     r=k=tam-1;
 
 	printf("\n----------- Shake Sort -----------\n");
-	
+
 	do {
     //Varredura da Direita(tamVetor-1) para a Esquerda(PosInicial)
         for(j=r;j>=posInicial;j--){
-		 
+
             if(vetor[j-1]>vetor[j]) {
                 aux=vetor[j-1];
                 vetor[j-1]=vetor[j];
                 vetor[j]=aux;
                 k=j;
             }
-            contador++;          
+            contador++;
     	}
 
        posInicial=k+1;
 
     //Varredura da Esquerda(posInicial) para Direita(tamVetor-1)
-        for(j=posInicial;j<=r;j++){ 
+        for(j=posInicial;j<=r;j++){
             if(vetor[j-1]>vetor[j]){
                 aux=vetor[j-1];
                 vetor[j-1]=vetor[j];
                 vetor[j]=aux;
                 k=j;
             }
-             contador++;            
+             contador++;
     	}
         r=k-1;
     } while(posInicial<=r);
-	
-	
+
+
 	printf("\n\nVetor Ordenado:\n");
     printf("\nIndice:\t Valor:\n");
     for(i=0;i<tam;i++) {
         printf("%d\t %d\n", i+1, vetor[i]);
     }
-    
-    printf("\nContagem de Ciclos: %d", contador);	
+
+    printf("\nContagem de Ciclos: %d", contador);
 }
 
 void Merge_Sort(int e, int tam, int vetor[]){
-	
+
 	int meio;
 
     if(e<tam-1) {
         meio = (e+tam)/2;
         Merge_Sort(e,meio,vetor);
         Merge_Sort(meio,tam,vetor);
-        intercala(e,meio,tam,vetor);        
+        intercala(e,meio,tam,vetor);
     }
 
 }
@@ -395,6 +392,58 @@ void intercala (int e, int meio, int tam, int vetor[]) {
     free(w);
 }
 
+/*void Quicksort(int e, int d){
+
+	int i;
+
+
+    system("cls");
+	printf("\nOk !! Voce escolheu ....... \n");
+    printf("\n----------- Quick Sort -----------\n");
+
+	if(d > e){
+		i= particao(e,d); //importante
+		Quicksort(e,i-1);
+		Quicksort(i+1,d);
+	}
+}
+
+int particao(int e, int d){
+
+	int v,i,j;
+
+	v = c5[d];
+	i = e -1;
+	j = d;
+
+	do{
+
+
+		do{
+			i = i+1; // esquerda
+			cont++;
+		}while((a[i] < v) && (i < d)); //Percorre todos os Ìndices atÈ que encontre um valor maior que o do pivÙ
+
+		do{
+			j = j-1; //direita
+			cont++;
+		}while((a[j] > v ) && (j > 0)); //Percorre todos os Ìndices da direita atÈ que encontre um valor menor que o pivÙ
+
+
+		//Realizando a troca dos valores menor(para a esquerda) e maior(para a direita) que o pivÙ
+		t = a[i];
+		a[i] =a[j];
+		a[j] = t;
+
+
+	}while(j > i);
+
+	//colocando o pivor [d] em seu lugar
+	a[j] = a[i];
+	a[i] = a[d];
+	a[d] = t;
+	return(i);
+} */
 
 
 
