@@ -18,11 +18,15 @@ int main() {
         vetor[i] = rand() %100;
     }
 
-    printf("\n\nVetor Criado:\n");
-    printf("\nIndice:\t Valor:\n");
-    for(i=0;i<tam_vetor;i++) {
-        printf("%d\t %d\n", i+1, vetor[i]);
+    printf("\n\nVetor Criado!!!\n");
+    if (tam_vetor < 10000) {
+        printf("\nIndice:\t Valor:\n");
+        for(i=0;i<tam_vetor;i++) {
+            printf("%d\t %d\n", i+1, vetor[i]);
+        }
     }
+
+
 
 
 //Implementação do Método Merge Sort
